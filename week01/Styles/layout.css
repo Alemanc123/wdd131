@@ -1,17 +1,28 @@
-/* Apply grid to the whole layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Outer grid container */
 .grid-container {
     display: grid;
     grid-template-areas:
         "header"
         "nav"
-        "main aside"
+        "content"
         "footer";
-    grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto 1fr auto;
     min-height: 100vh;
 }
 
-/* Assign each section to its area */
+/* Header */
 header {
     grid-area: header;
     background-color: #333;
@@ -19,16 +30,16 @@ header {
     padding: 1rem;
 }
 
+/* Navigation */
 nav {
     grid-area: nav;
     background-color: black;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
     justify-content: space-around;
-    margin: 0;
+    list-style: none;
     padding: 0.5rem 0;
 }
 
@@ -37,18 +48,27 @@ nav a {
     text-decoration: none;
 }
 
+/* Content grid with main and aside */
+.content-wrapper {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    background-color: #eee;
+    padding: 1rem;
+}
+
 main {
-    grid-area: main;
     background-color: #ccc;
     padding: 1rem;
 }
 
 aside {
-    grid-area: aside;
     background-color: white;
     padding: 1rem;
 }
 
+/* Footer */
 footer {
     grid-area: footer;
     background-color: #333;
